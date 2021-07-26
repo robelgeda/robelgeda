@@ -1,0 +1,8 @@
+#mainNav {
+  border-bottom: 1px solid hsla(0,0%,100%,0);
+}
+
+#mainNav.navbar-shrink {
+  border-bottom: 1px solid hsla(0,0%,100%,0);
+}
+
