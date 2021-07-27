@@ -6,8 +6,14 @@
   border-bottom: 1px solid hsla(0,0%,100%,0);
 }
 
-.fa.fa-angle-double-down.animated {
-  border-radius: 10px;
-  border-color: white;
+h1, .cd-words-wrapper {
+  font-size: 30px;
+}
+
+@media screen and (min-width: 500px) {
+  h1, .cd-words-wrapper {
+    font-size: 48px;
+    letter-spacing: 15px;
+  }
 }
 
