@@ -8,12 +8,14 @@
 
 h1, .cd-words-wrapper {
   font-size: 30px;
+  font-family: 'Roboto Condensed';
 }
 
 @media screen and (min-width: 500px) {
   h1, .cd-words-wrapper {
     font-size: 48px;
     letter-spacing: 15px;
+    font-family: 'Roboto Condensed';
   }
 }
 
