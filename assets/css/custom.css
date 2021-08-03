@@ -1,0 +1,22 @@
+#mainNav {
+  border-bottom: 1px solid hsla(0,0%,100%,0);
+}
+
+#mainNav.navbar-shrink {
+  border-bottom: 1px solid hsla(0,0%,100%,0);
+  background-color: #050008;
+}
+
+h1, .cd-words-wrapper {
+  font-size: 25px;
+  font-family: 'Roboto Condensed';
+}
+
+@media screen and (min-width: 500px) {
+  h1, .cd-words-wrapper {
+    font-size: 48px;
+    letter-spacing: 15px;
+    font-family: 'Roboto Condensed';
+  }
+}
+
