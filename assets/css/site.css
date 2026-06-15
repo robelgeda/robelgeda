@@ -1,0 +1,681 @@
+/* =============================================================================
+   site.css
+
+   single stylesheet for robelgeda.com.
+   zen aesthetic: white background, near-black serif text, generous whitespace,
+   rounded apple-style controls. no framework dependencies.
+   ============================================================================= */
+
+:root {
+  --bg: #ffffff;
+  --ink: #1d1d1f;
+  --muted: #6e6e73;
+  --line: rgba(0, 0, 0, 0.10);
+  --line-strong: rgba(0, 0, 0, 0.18);
+  --accent: #0071e3;
+  --accent-ink: #ffffff;
+  --radius: 18px;
+  --radius-sm: 12px;
+  --nav-h: 64px;
+  --maxw: 1040px;
+  /* charter first, graceful serif fallback if the webfont is not installed.
+     drop charter woff2 files into assets/fonts/ to render charter everywhere
+     (see @font-face below); otherwise georgia/serif is used. */
+  --serif: "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, "Times New Roman", serif;
+}
+
+/* optional self-hosted charter. missing files fail silently and fall back. */
+@font-face {
+  font-family: "Charter";
+  src: url("../fonts/charter_regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Charter";
+  src: url("../fonts/charter_italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Charter";
+  src: url("../fonts/charter_bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.6;
+  letter-spacing: 0.1px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 { font-weight: 700; line-height: 1.2; letter-spacing: -0.2px; }
+h1 { font-size: 2.4rem; margin: 0 0 0.4em; }
+h2 { font-size: 1.6rem; margin: 1.8em 0 0.6em; }
+h3 { font-size: 1.2rem; margin: 1.4em 0 0.4em; }
+
+p { margin: 0 0 1em; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------------------------------------------------------------------------
+   navigation: brand left, page list centered, contact right. fixed and
+   visible on every page. collapses to a toggle menu on narrow screens.
+   --------------------------------------------------------------------------- */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+/* the bar aligns to the same reading column as the body content */
+.nav-inner {
+  max-width: var(--maxw);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  flex: 1;
+}
+.nav-brand:hover { text-decoration: none; }
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-menu a {
+  color: var(--ink);
+  font-size: 1.02rem;
+  padding: 4px 2px;
+  border-bottom: 1.5px solid transparent;
+}
+.nav-menu a:hover { text-decoration: none; opacity: 0.6; }
+.nav-menu a[aria-current="page"] { border-bottom-color: var(--ink); }
+.nav-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.nav-right a {
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+.nav-right a:hover { text-decoration: none; opacity: 0.6; }
+
+/* contact lives on the right on desktop; it folds into the menu on mobile */
+.nav-menu .nav-contact-only { display: none; }
+
+/* mobile toggle (css-only checkbox hack) */
+.nav-toggle-cb { display: none; }
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+  padding: 8px;
+  margin: -8px;
+  color: var(--ink);
+}
+.nav-toggle svg { display: block; }
+
+/* page content sits below the fixed nav */
+main { flex: 1 0 auto; padding-top: calc(var(--nav-h) + 48px); padding-bottom: 96px; }
+
+/* ---------------------------------------------------------------------------
+   buttons: apple-style pills.
+   --------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--serif);
+  font-size: 1rem;
+  padding: 2px 6px;
+  border-radius: 980px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+.btn:hover { text-decoration: none; }
+.btn-primary { opacity: 0.85; }
+.btn-primary:hover { opacity: 0.85; }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn-ghost:hover { background: rgba(0, 0, 0, 0.04); }
+
+/* ---------------------------------------------------------------------------
+   about (landing) page: bio body left, profile panel right.
+   --------------------------------------------------------------------------- */
+.about {
+  display: grid;
+  grid-template-columns: 292px 1fr; /*Important*/
+  gap: 64px;
+  align-items: start;
+}
+.about-body h1 { margin-top: 0; }
+.about-body .lede { font-size: 1.25rem; color: var(--ink); }
+.about-body .interests {
+  margin-top: 0em;
+  padding-top: 0em;
+  border-top: 0px solid var(--line);
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.panel {
+  position: sticky;
+  top: calc(var(--nav-h) + 48px);
+}
+.panel .avatar {
+  width: 292px;
+  height: 329px;
+  margin: 0 0 20px;
+  border-radius: 3%;
+  object-fit: cover;
+  background: #f0f0f2;
+  border: 1px solid var(--line);
+}
+.panel .panel-name { font-size: 1.4rem; font-weight: 700; margin: 0; }
+.panel .panel-role { color: var(--muted); margin: 4px 0 2px; font-size: 0.98rem; }
+.panel .panel-place { color: var(--muted); margin: 0 0 12px; font-size: 0.92rem; }
+/* row of icon links, dimmed by default and brightening on hover (apple-style).
+   wraps to the next line when the panel is too narrow (phones). */
+.panel-links {
+  list-style: none;
+  margin: 0 0 2px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  max-width: 292px;
+}
+.panel-links a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  opacity: 0.5;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.panel-links a:hover { opacity: 1; color: var(--accent); text-decoration: none; }
+.panel-links svg { width: 22px; height: 22px; flex: none; }
+/* custom tooltip built from the link's aria-label */
+.panel-links a::after {
+  content: attr(aria-label);
+  position: absolute;
+  bottom: calc(-100% - 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 5px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+.panel-links a:hover::after { opacity: 1; }
+
+/* ---------------------------------------------------------------------------
+   research page: project index on the left, project cards centered.
+   --------------------------------------------------------------------------- */
+.research {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.research-index {
+  position: sticky;
+  top: calc(var(--nav-h) + 48px);
+}
+.research-index h2 { margin: 0 0 0.6em; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.research-index ul { list-style: none; margin: 0; padding: 0; }
+.research-index li { margin: 0 0 12px; }
+.research-index a { color: var(--ink); font-size: 0.98rem; line-height: 1.35; display: block; }
+.research-index a:hover { color: var(--accent); text-decoration: none; }
+
+.cards { display: flex; flex-direction: column; gap: 28px; }
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 30px;
+  cursor: pointer;
+  scroll-margin-top: calc(var(--nav-h) + 24px);
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+.card:hover { box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); transform: translateY(-2px); }
+.card:hover h3 { color: var(--accent); }
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 1.4rem;
+}
+/* badge links and gallery images keep their own pointer behavior */
+.card a, .card .gallery img { cursor: pointer; }
+.card .meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 14px; }
+.card .abstract { margin: 0 0 16px; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.badges img { height: 20px; }
+
+/* gallery mode: borderless, edge-to-edge thumbnails (used inside the modal) */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 4px;
+}
+.gallery img, .gallery video {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  cursor: zoom-in;
+  background: var(--bg);
+  display: block;
+}
+
+/* card view: large apple-style hero figures. one or two stacked, full width,
+   shown whole (no crop) on a neutral panel. overrides the thumbnail grid. */
+.card .gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 6px;
+}
+.card .gallery img, .card .gallery video {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  background:  var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  cursor: zoom-in;
+  display: block;
+}
+
+/* ---------------------------------------------------------------------------
+   research dialog (modal).
+   --------------------------------------------------------------------------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.55);
+  /* backdrop blur disabled for performance; re-enable if desired:
+     backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); */
+  overflow-y: auto;
+}
+.modal.open { display: flex; }
+.modal-box {
+  position: relative;
+  background: var(--bg);
+  border-radius: var(--radius);
+  max-width: 760px;
+  width: 100%;
+  margin: auto 0;
+  padding: 26px 44px 48px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+/* header strip: prev/next on the left, close on the right. kept in flow (not
+   absolute) so it stays put while project bodies of different lengths scroll. */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 16px;
+}
+.modal-step-nav { display: flex; gap: 8px; }
+.modal-step, .modal-close {
+  width: 34px; height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--ink);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.modal-close { font-size: 1.2rem; }
+.modal-step:hover, .modal-close:hover { background: rgba(0, 0, 0, 0.12); }
+.modal-box h2 { margin: 0 0 10px; font-size: 1.9rem; }
+.modal-box .meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 18px; }
+.modal-box .gallery { margin: 22px 0; }
+.modal-box .gallery img, .modal-box .gallery video { height: 150px; }
+/* images and videos embedded directly in the dialog body (prose), e.g. gifs */
+#modal-body img,
+#modal-body video {
+  width: 100%;
+  height: auto;
+  margin: 18px 0;
+  border-radius: var(--radius-sm);
+  cursor: zoom-in;
+}
+/* multi-column figure row inside the dialog body: equal columns, one row. */
+#modal-body .body-figures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 18px 0;
+}
+#modal-body .body-figures.cols-2 { grid-template-columns: repeat(2, 1fr); }
+#modal-body .body-figures figure { margin: 0; align-self: start; }
+#modal-body .body-figures img,
+#modal-body .body-figures video { margin: 0; }
+#modal-body figcaption {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-top: 6px;
+}
+.modal-section-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin: 26px 0 8px; }
+.modal-box ul.presentations { margin: 0; padding-left: 1.2em; color: var(--ink); }
+
+/* ---------------------------------------------------------------------------
+   lightbox: full-screen media viewer. images zoom/pan; videos get a fitted
+   native player (zoom controls and gestures are suppressed in video mode).
+   --------------------------------------------------------------------------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: none;
+  background: var(--bg);
+}
+.lightbox.open { display: block; }
+.lb-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none; /* we handle pan/pinch ourselves */
+  display: flex; /* centers a video; absolute image is unaffected */
+  align-items: center;
+  justify-content: center;
+}
+.lb-stage.panning { cursor: grabbing; }
+.lb-img {
+  position: absolute;
+  top: 0; left: 0;
+  max-width: none; /* override global img cap so zoom can exceed viewport */
+  transform-origin: 0 0;
+  user-select: none;
+  -webkit-user-drag: none;
+  will-change: transform;
+  /* subtle edge so a white-background figure reads against the white stage */
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+}
+/* video mode: fit the player to the viewport and disable zoom affordances */
+.lightbox.video .lb-stage { cursor: default; }
+.lightbox.video .lb-img {
+  position: static;
+  transform: none !important;
+  max-width: 94vw;
+  max-height: 84vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+.lightbox.video .lb-controls { display: none; }
+.lb-close {
+  position: absolute;
+  top: 16px; right: 18px;
+  z-index: 2;
+  width: 42px; height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--ink);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.lb-close:hover { background: rgba(0, 0, 0, 0.12); }
+.lb-caption {
+  position: absolute;
+  bottom: 80px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 4; /* above the will-change stacking context of the zoomed image */
+  max-width: min(90vw, 720px);
+  text-align: center;
+  color: #fff;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  padding: 8px 16px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+  /* revealed on pointer movement, fades out when idle (see show-caption) */
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.lightbox.show-caption .lb-caption { opacity: 1; }
+/* an empty caption renders nothing rather than an empty pill */
+.lb-caption:empty { display: none; }
+.lb-controls {
+  position: absolute;
+  bottom: 22px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 980px;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.lb-controls button {
+  min-width: 46px;
+  height: 40px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 980px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.lb-controls button:hover { background: rgba(0, 0, 0, 0.1); }
+.lb-controls .lb-reset { font-size: 0.95rem; }
+
+/* ---------------------------------------------------------------------------
+   contact page.
+   --------------------------------------------------------------------------- */
+.contact { max-width: 620px; margin: 0 auto; text-align: center; }
+.contact h1 { margin-bottom: 0.6em; }
+.contact-grid {
+  display: grid;
+  gap: 18px;
+  margin: 36px 0;
+  text-align: left;
+}
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+.contact-row svg { width: 22px; height: 22px; flex: none; color: var(--muted); }
+.contact-row .label { color: var(--muted); font-size: 0.85rem; display: block; }
+.contact-row .value { color: var(--ink); }
+
+/* ---------------------------------------------------------------------------
+   publications page: a clean, dense reference list. one row per paper, year
+   gutter on the left, an ADS button on the right.
+   --------------------------------------------------------------------------- */
+.pubs { max-width: 840px; margin: 0 auto; }
+.pubs-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.pubs-head h1 { margin: 0; }
+.pubs .lede { color: var(--muted); font-size: 1.05rem; margin: 14px 0 0; }
+.pub-group {
+  margin: 20px 0 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.pub-list { list-style: none; margin: 16px 0 0; padding: 0; }
+.pub {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  padding: 12px 0;
+}
+.pub-year {
+  flex: none;
+  min-width: 46px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+.pub-main { flex: 1; min-width: 0; }
+.pub-title { margin: 0 0 4px; font-size: 1.15rem; line-height: 1.35; }
+.pub-title a { color: var(--ink); }
+.pub-title a:hover { color: var(--accent); text-decoration: none; }
+.pub-authors { margin: 0 0 2px; color: var(--ink); font-size: 0.95rem; }
+.pub-venue { margin: 0; color: var(--muted); font-size: 0.92rem; font-style: italic; }
+
+/* ---------------------------------------------------------------------------
+   footer.
+   --------------------------------------------------------------------------- */
+.footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 28px 24px;
+}
+.footer p { margin: 4px 0; }
+.footer a { color: inherit; }
+.footer a:hover { color: var(--ink); text-decoration: none; }
+
+/* narrow prose column for simple text pages (e.g. colophon) */
+.prose { max-width: 680px; margin: 0 auto; }
+.prose h1 { margin-top: 0; }
+.prose .muted { color: var(--muted); }
+
+/* ---------------------------------------------------------------------------
+   responsive.
+   --------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  body { font-size: 18px; }
+  h1 { font-size: 2rem; }
+
+  .nav-toggle { display: inline-flex; }
+  .nav-brand { flex: none; }
+  .nav-right { display: none; }
+  .nav-menu {
+    position: absolute;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .nav-menu li { width: 100%; text-align: center; }
+  .nav-menu a { display: block; padding: 16px; border-bottom: 1px solid var(--line); }
+  .nav-menu a[aria-current="page"] { border-bottom-color: var(--line); color: var(--accent); }
+  .nav-toggle-cb:checked ~ .nav-menu { max-height: 360px; }
+  .nav-menu .nav-contact-only { display: block; }
+
+  .about { grid-template-columns: 1fr; gap: 32px; }
+  .panel {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .panel .avatar { width: 150px; height: 150px; }
+  .panel-links {
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .research { grid-template-columns: 1fr; gap: 28px; }
+  .research-index {
+    position: static;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+
+  .pub { flex-wrap: wrap; gap: 6px 16px; }
+  .pub-year { order: -1; }
+  .pub-main { flex-basis: 100%; }
+
+  .modal-box { padding: 32px 24px 40px; }
+}
+
