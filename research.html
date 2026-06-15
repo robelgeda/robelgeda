@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research — Robel Geda</title>
+  <meta name="description" content="Research projects by Robel Geda: dwarf galaxy formation, cosmological simulations, X-ray binaries, and galaxy photometry.">
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/research.js" defer></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">Robel Geda</a>
+      <input type="checkbox" id="nav-toggle-cb" class="nav-toggle-cb">
+      <label for="nav-toggle-cb" class="nav-toggle" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </label>
+      <ul class="nav-menu">
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html" aria-current="page">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="Robel_Geda_CV.pdf" target="_blank" rel="noopener">CV</a></li>
+        <li class="nav-contact-only"><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right"><a href="contact.html">Contact</a></div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container research">
+      <nav class="research-index" aria-label="Project index">
+        <h2>Projects</h2>
+        <ul id="research-index-list"></ul>
+      </nav>
+      <div class="cards" id="cards"></div>
+    </div>
+  </main>
+
+  <!-- project dialog -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-step-nav">
+          <button class="modal-step" id="modal-prev" aria-label="Previous project">&lsaquo;</button>
+          <button class="modal-step" id="modal-next" aria-label="Next project">&rsaquo;</button>
+        </div>
+        <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <h2 id="modal-title"></h2>
+      <p class="meta" id="modal-meta"></p>
+      <div class="badges" id="modal-badges"></div>
+      <div id="modal-body"></div>
+      <div id="modal-presentations" style="display:none">
+        <p class="modal-section-title">Presentations</p>
+        <ul class="presentations"></ul>
+      </div>
+      <div id="modal-gallery"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p><a href="about_cite.html">&copy; <span id="year">2026</span> Robel Geda</a></p>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

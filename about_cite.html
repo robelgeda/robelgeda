@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colophon — Robel Geda</title>
+  <meta name="description" content="How this site was built, and how to cite it.">
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">Robel Geda</a>
+      <input type="checkbox" id="nav-toggle-cb" class="nav-toggle-cb">
+      <label for="nav-toggle-cb" class="nav-toggle" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </label>
+      <ul class="nav-menu">
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="Robel_Geda_CV.pdf" target="_blank" rel="noopener">CV</a></li>
+        <li class="nav-contact-only"><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right"><a href="contact.html">Contact</a></div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container prose">
+      <h1>Colophon</h1>
+      <p>This site is a small set of hand editable static pages: plain HTML, CSS, and vanilla JavaScript, with no tracking beyond optional Google Analytics for ranking.</p>
+
+      <h2>Credit</h2>
+      <p>The HTML and CSS template of this site was designed by Robel Geda and built with <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a>, Anthropic's command-line coding agent (model Claude Opus 4.8). Profile photo was taken and graciously provided by <a href="https://www.instagram.com/fotobdy/" target="_blank" rel="noopener">Sameer A. Khan</a> as part of a Princeton Alumni Weekly <a href="https://paw.princeton.edu/article/long-ago-and-far-away" target="_blank" rel="noopener">article on JWST</a>.</p>
+
+      <h2>Using this work</h2>
+      <p>Text, figures, and the CV on this site were written by and belong to Robel Geda. For research papers, please cite the original publications listed on <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22robel+geda%22&amp;sort=date+desc" target="_blank" rel="noopener">NASA ADS</a> rather than this website.</p>
+      <p>The contents of this site may not be scraped, reproduced, or used to train machine-learning or generative-AI systems. Automated crawlers and AI agents should not collect or reuse anything here.</p>
+
+      <p class="muted">&copy; <span id="year">2026</span> Robel Geda. <a href="index.html">Back home</a>.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p><a href="about_cite.html">&copy; <span id="yearf">2026</span> Robel Geda</a></p>
+  </footer>
+  <script>
+    var y = new Date().getFullYear();
+    document.getElementById("year").textContent = y;
+    document.getElementById("yearf").textContent = y;
+  </script>
+</body>
+</html>
