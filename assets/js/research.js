@@ -31,7 +31,7 @@ const PROJECTS = [
     body:
       "<p>Dwarf galaxies form stars in a notably bursty fashion, and one clear expression of this is the large observed scatter in specific star formation rate (sSFR) at fixed stellar mass. This ongoing project interrogates what physically drives the star formation history (SFH) of dwarf galaxies over cosmic time: on what timescales does star formation vary, and how does that variability interplay with the internal dynamics of the galaxy?</p>",
     images: [
-      { src: "assets/img/r568.stargas.mp4", caption: "Sstar formation in a simulated LMC type dwarf. Gas density (colormap), with newly formed stars in purple." }
+      { src: "assets/img/r568.stargas.mp4", caption: "Star formation in a simulated LMC type dwarf. Gas density (colormap), with newly formed stars in purple." }
     ],
     presentations: []
   },
