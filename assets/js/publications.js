@@ -62,6 +62,7 @@ const PUBLICATIONS = [
     group: "first",
     authors: "Li, L., <strong>Geda, R.</strong>, Hayes, A. B., Chen, Y., Chaudhari, P., Zhang, E. Z., & Szegedy, M.",
     title: "A Simple Yet Effective Balanced Edge Partition Model for Parallel Computing", 
+    venue: "ACM SIGMETRICS, 2017, 14",
     ads: "https://dl.acm.org/doi/10.1145/3084451"
   },
   // ----------------------------------------------------------------------------------------------------------
