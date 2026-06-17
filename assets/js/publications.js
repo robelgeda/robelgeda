@@ -29,7 +29,7 @@ const PUBLICATIONS = [
     year: 2025,
     group: "first",
     authors: "<strong>Geda, R.</strong>, Cruz, A., Wright, A. C., Greene, J. E., Brooks, A., Quinn, T., Wadsley, J., & Keller, B.",
-    title: "Disk Formation and the Size-sSFR Relation of Dwarf Galaxies",
+    title: "The Formation of Dwarf Galaxy Disks",
     venue: "arXiv e-prints (accepted, The Astrophysical Journal)",
     ads: "https://ui.adsabs.harvard.edu/abs/2025arXiv251026875G/abstract",
   },
