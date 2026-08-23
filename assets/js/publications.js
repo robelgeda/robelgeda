@@ -26,12 +26,12 @@ const PUB_GROUPS = [
 // geda's name is wrapped in <strong> for emphasis. newest first per group.
 const PUBLICATIONS = [
   {
-    year: 2025,
+    year: 2026,
     group: "first",
     authors: "<strong>Geda, R.</strong>, Cruz, A., Wright, A. C., Greene, J. E., Brooks, A., Quinn, T., Wadsley, J., & Keller, B.",
     title: "The Formation of Dwarf Galaxy Disks",
-    venue: "arXiv e-prints (accepted, The Astrophysical Journal)",
-    ads: "https://ui.adsabs.harvard.edu/abs/2025arXiv251026875G/abstract",
+    venue: "The Astrophysical Journal, 1004, 110",
+    ads: "https://ui.adsabs.harvard.edu/abs/2026ApJ..1004..110G/abstract",
   },
   {
     year: 2025,
