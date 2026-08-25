@@ -75,20 +75,20 @@ const PUBLICATIONS = [
     ads: "https://ui.adsabs.harvard.edu/abs/2026arXiv260506893R/abstract",
   },
   {
+    year: 2026,
+    group: "co",
+    authors: "Cruz, A., Brooks, A., Lisanti, M., Peter, A. H. G., <strong>Geda, R.</strong>, Quinn, T. R., Tremmel, M., et al.",
+    title: "Dwarf Diversity in LCDM with Baryons",
+    venue: "The Astrophysical Journal, 1005, 157",
+    ads: "https://ui.adsabs.harvard.edu/abs/2025arXiv251011800C/abstract",
+  },
+  {
     year: 2025,
     group: "co",
     authors: "Danieli, S., et al. (including <strong>Geda, R.</strong>)",
     title: "First Data Release of the Merian Survey: A Wide-field Imaging Survey of Dwarf Galaxies at z ~ 0.06–0.10",
     venue: "The Astrophysical Journal, 993, 110",
     ads: "https://ui.adsabs.harvard.edu/abs/2025ApJ...993..110D/abstract",
-  },
-  {
-    year: 2025,
-    group: "co",
-    authors: "Cruz, A., Brooks, A., Lisanti, M., Peter, A. H. G., <strong>Geda, R.</strong>, Quinn, T. R., Tremmel, M., et al.",
-    title: "Dwarf Diversity in LCDM with Baryons",
-    venue: "arXiv e-prints",
-    ads: "https://ui.adsabs.harvard.edu/abs/2025arXiv251011800C/abstract",
   },
   {
     year: 2024,
