@@ -20,16 +20,23 @@
 const ADS_AUTHOR = "https://ui.adsabs.harvard.edu/search/q=author%3A%22robel+geda%22&sort=date+desc";
 
 const PROJECTS = [
-  {
-    title: "Star Formation Histories of Dwarf Galaxies",
-    meta: "Current Project · Princeton University",
+    {
+    title: "Cyclic  Star Formation in Dipole Dwarf Galaxies",
+    meta: "Geda et al. · arXiv(2026)",
     badges: [
-      { alt: "status", href: "", src: "https://img.shields.io/badge/status-in%20progress-orange" }
+      { alt: "ADS", href: "https://ui.adsabs.harvard.edu/abs/2026arXiv261037621G/abstract", src: "https://img.shields.io/badge/ADS-abstract-1f4e79" },
+      { alt: "arXiv", href: "https://arxiv.org/abs/2610.37621", src: "https://img.shields.io/badge/arXiv-2610.37621-b31b1b" }
     ],
     abstract:
-      "Dwarf galaxies form stars in bursts, producing wide scatter in specific star formation rate at fixed mass. This ongoing project interrogates what drives that variability and how it interplays with the internal dynamics of the galaxy.",
+      "Dwarf galaxies form stars in bursts. We find that a subset of disk dwarfs form stars in cycles set by the orbital period of a lopsided gas disk.",
     body:
-      "<p>Dwarf galaxies form stars in a notably bursty fashion, and one clear expression of this is the large observed scatter in specific star formation rate (sSFR) at fixed stellar mass. This ongoing project interrogates what physically drives the star formation history (SFH) of dwarf galaxies over cosmic time: on what timescales does star formation vary, and how does that variability interplay with the morphology and internal dynamics of the galaxy?</p>",
+      "<p>Dwarf galaxies form stars in bursts, but the timescales and causes of that variability are not well constrained. Using 50 high resolution cosmological zoom-in simulations of isolated dwarfs (the Marvelous Massive Dwarfs and Extended Marvelous Dwarfs suites), this work measures star formation histories in 10 Myr bins and characterizes their variability with power spectral densities. At the population level, disk and non-disk dwarfs follow a broken power law with a break near 100 Myr. Individually, a subset of disks (18% of the sample) show quasi-periodic oscillations in star formation rate, which we call cyclic star formation. The period scales linearly with half-light radius and matches the orbital period at that radius.</p>" +
+      "<figure><img src='assets/img/two_galaxies_maps.jpg' data-caption='Dark matter, gas, stars, and young stars (age below 100 Myr) for a stable disk (r571, top) and a dipole disk (r568, bottom) with the same dark matter and gas mass. The dipole disk is lopsided and its young stars are concentrated near the center.' alt='A stable disk (r571, top) and a dipole disk (r568, bottom) with the same dark matter and gas mass.'><figcaption>Dark matter, gas, stars, and young stars (age below 100 Myr) for a stable disk (r571, top) and a dipole disk (r568, bottom) with the same dark matter and gas mass. The dipole disk is lopsided and its young stars are concentrated near the center.</figcaption></figure>" +
+      "<p>We show that cyclic galaxies host lopsided (dipole) gas disks with Magellanic spiral morphologies. In these systems the bulk of the cold gas moves between its closest and farthest approach to the galactic center once per radial orbit. The gas is compressed at closest approach and star formation peaks; it is rarefied at farthest approach and star formation drops. The cycle adds a narrow Lorentzian peak to the power spectrum at the orbital frequency of the disk (200 to 500 Myr), comparable to burst timescales inferred from observations.</p>" +
+      "<div class='body-figures cols-2'>" +
+      "<figure><img src='assets/img/r568_orbit_theta_r_vs_time.jpg' data-caption='Cold gas dynamics of the dipole disk r568 over the last Gyr. Top: gas surface density over one cycle. Middle and bottom: gas mass in position angle and radius, with the star formation rate (black) and the cold gas center of mass (white). Star formation peaks when the gas reaches closest approach.' alt='Gas dynamics of the dipole disk'><figcaption>Cold gas dynamics of the dipole disk r568 over the last Gyr. Top: gas surface density over one cycle. Middle and bottom: gas mass in position angle and radius, with the star formation rate (black) and the cold gas center of mass (white). Star formation peaks when the gas reaches closest approach.</figcaption></figure>" +
+      "<figure><img src='assets/img/r571_orbit_theta_r_vs_time.jpg' data-caption='Same as above for the stable disk r571. The gas stays smoothly distributed, its center of mass stays at the galactic center, and star formation is not coupled to the gas dynamics.' alt='Gas dynamics of the stable disk'><figcaption>Same as above for the stable disk r571. The gas stays smoothly distributed, its center of mass stays at the galactic center, and star formation is not coupled to the gas dynamics.</figcaption></figure>" +
+      "</div>",
     images: [
       { src: "assets/img/r568.stargas.mp4", caption: "Star formation in a simulated LMC type dwarf. Gas density (colormap), with newly formed stars in purple." }
     ],
@@ -37,7 +44,7 @@ const PROJECTS = [
   },
   {
     title: "The Formation of Dwarf Galaxy Disks",
-    meta: "Geda et al. · The Astrophysical Journal (accepted, 2026)",
+    meta: "Geda et al. · The Astrophysical Journal (2026)",
     badges: [
       { alt: "ADS", href: "https://ui.adsabs.harvard.edu/abs/2025arXiv251026875G/abstract", src: "https://img.shields.io/badge/ADS-abstract-1f4e79" },
       { alt: "journal", href: "https://iopscience.iop.org/article/10.3847/1538-4357/ae64fd", src: "https://img.shields.io/badge/ApJ-2026-7a1f1f" }
@@ -45,6 +52,7 @@ const PROJECTS = [
     abstract:
       "Extended stellar disks are common in isolated field dwarfs, yet simulations have struggled to reproduce them. We identify the physical mechanism that builds them.",
     body:
+      "<figure><img src='assets/img/dwarf_disk_flowchart.jpg' data-caption='Compact versus extended chart.' alt='Compact versus extended chart.'><figcaption>Extended disk formation path.</figcaption></figure>" +
       "<p>Extended stellar disks are common in isolated field dwarf galaxies, yet cosmological simulations have historically struggled to reproduce them. Using 39 high resolution cosmological zoom-in simulations of isolated dwarfs (the Marvelous Massive Dwarfs suite), this work identifies the physical mechanism responsible. About half (54%) of the sample begins compact and grows into extended systems.</p>" +
       "<figure><img src='assets/img/disk_formation_compact_vs_extended.jpg' data-caption='Evolution of the compact (top) and extended (bottom) sub-samples in the mass-size, mass-SFR, and size-sSFR planes; the final column follows one example galaxy over cosmic time. Extended dwarfs begin compact and grow secularly at roughly constant sSFR.' alt='Compact versus extended sub-samples'><figcaption>Evolution of the compact (top) and extended (bottom) sub-samples in the mass-size, mass-SFR, and size-sSFR planes; the final column follows one example galaxy over cosmic time. Extended dwarfs begin compact and grow secularly at roughly constant sSFR.</figcaption></figure>" +
       "<p>We show that rotation supported stellar disks are built from gas spun up by high angular-momentum satellite mergers. These mergers deposit angular momentum into the interstellar medium, transforming compact, pressure supported dwarfs into extended disk galaxies with effective radii exceeding 2 kpc. The growth proceeds secularly, at relatively stable specific star formation rate, driven by ordered rotation rather than by feedback or intense star formation episodes.</p>" +
