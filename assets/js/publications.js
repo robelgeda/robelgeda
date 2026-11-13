@@ -28,6 +28,14 @@ const PUBLICATIONS = [
   {
     year: 2026,
     group: "first",
+    authors: "Cruz, A., <strong>Geda, R.</strong>, Brooks, A., Lisanti, M., Peter, A. H. G., Quinn, T. R., & Keller, B.",
+    title: "Dark Matter Alters Dwarf Galaxy Sizes and Morphologies",
+    venue: "arXiv e-prints, arXiv:2611.14638",
+    ads: "https://ui.adsabs.harvard.edu/abs/2026arXiv261114638C/abstract",
+  },
+  {
+    year: 2026,
+    group: "first",
     authors: "<strong>Geda, R.</strong>, Cruz, A., Brooks, A., Greene, J. E., Filion, C., Price-Whelan, A. M., Quinn, T. R., Wadsley, J., & Keller, B.",
     title: "Galactic Dynamics Drives Cyclic Star Formation in Dipole Dwarf Galaxies",
     venue: "arXiv e-prints, arXiv:2610.37621",
